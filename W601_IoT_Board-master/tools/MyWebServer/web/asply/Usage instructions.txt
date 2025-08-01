@@ -1,0 +1,43 @@
+Program name: Suiyuan Network Message Board v2 (with audit and top function + ajax + jquery
+framework) Author: Xiamen Suiyuan Network Technology
+QQ: 84723090 Official website http://www.7wb.org
+Demo website http://www.7wb.org/book Program download
+http://www.7wb.org/book.rar
+
+Updated on October 31, 2011: 1.
+Added a new setting for displaying the number of messages in the backend distribution, and the guestbook name can now be set in the backend. 2.
+Added database optimization, compression, and backup features in the backend. 3.
+Displays the number of unreviewed messages in the frontend, as requested by customers, to facilitate management. 4.
+Added a verification code to address customer complaints of spam messages. 5. JavaScript is now used to
+automatically refresh the page after a successful message submission. For unsuccessful submissions, an error message will be displayed by default, and the original data will be retained.
+
+Updated on June 30, 2011: 1. A message
+review switch has been added to the website settings. Webmasters can choose whether to enable or disable the message review function based on their specific needs. 2. A
+batch review function has been added to the website management. 3. The
+function that automatically resets the form after a successful submission has been corrected.
+
+Updated on December 3, 2010: 1.
+Added a new formatting rule for phone number input to avoid spam messages. 2. Added
+a notification when messages are being submitted. The submit button is also hidden during the message submission process. This prevents the server from responding slowly, causing customers to not know
+whether to submit their messages and submitting
+them repeatedly. 3. Added an editor to the message and reply area to facilitate backend administrators in managing and editing messages.
+
+Suiyuan Online Message Board v2 (with review and pinning functionality) is a free, open-source guestbook built on an ASP, jQuery, and AJAX framework. It features a div+CSS layout and a blue color scheme.
+Simple and clean! The message board comes with a built-in backend for batch message management, making it suitable for small and medium-sized enterprises to integrate into their websites or use as a standalone
+message system for communication
+
+This site also provides related php, asp message board and enterprise website management system customization services.
+Friends in need can contact us. Website: http://www.116cn.cn http://www.115cn.cn QQ: 84723090 545177708 Tel: 0592- 5983163
+
+Disclaimer: This program was independently developed by Suiyuan Network, and all copyrights are
+reserved. It may be used and distributed freely for any purpose, provided that the design and production of the program are retained: Xiamen Suiyuan Network Technology Information.
+
+Install
+=============================
+Upload all the files in the unzipped package to the virtual space or set it as a local IIS virtual directory, ASP+Access architecture.
+
+Use
+=============================
+Default login user: admin Default
+login password: admin
+1. After entering the backend, please change your login account and password to an alphanumeric combination as much as possible to prevent the password from being guessed.
