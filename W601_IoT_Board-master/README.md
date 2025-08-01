@@ -1,156 +1,156 @@
-# RT-Thread W60X SDK 说明
+# RT-Thread W60X SDK Description
 
-## 内容简介
+## Introduction
 
-RT-Thread W60X SDK 由开发平台 W601 IoT Board 的详细介绍和丰富的软件资源组成。
+The RT-Thread W60X SDK includes a detailed introduction to the W601 IoT Board development platform and a wealth of software resources.
 
-随着物联网的兴起，新的开发需求不断涌现，越来越多的设备需要添加联网功能。此时使用传统的开发方式已经不足以应对日益丰富的需求，为了提高开发效率，需要使用更多的通用组件。因此在 W60X SDK 中，不仅有对开发板资源使用方式的内容，还会介绍 RT-Thread 中的通用组件以及丰富的面向物联网应用的软件包。有了这些软件包助力，会给开发者在开发过程中带来极大的便利。
+With the rise of the Internet of Things (IoT), new development needs are constantly emerging, and more and more devices require connectivity. Traditional development methods are no longer sufficient to meet these demands. To improve development efficiency, more common components are needed. Therefore, the W60X SDK not only explains how to use the development board resources, but also introduces common RT-Thread components and a rich set of software packages for IoT applications. These packages will greatly facilitate developers' development process.
 
-## W601 IoT Board 开发板资源简介
+## W601 IoT Board Development Board Resource Overview
 
-### 硬件资源说明
+### Hardware Resource Description
 
-W601 IoT Board 开发板如下图所示：
+The W601 IoT Board development board is shown in the figure below:
 
-![W601 IoT Board 开发板](docs/figures/hardware/W60x_HW_origin.png)
+![W601 IoT Board Development Board](docs/figures/hardware/W60x_HW_origin.png)
 
-开发板核心芯片资源如下：
+The development board's core chip resources are as follows:
 
-支持多接口、多协议的无线局域网 IEEE802.11n（1T1R）。集成 Cortex-M3 内核，主频 80Mhz。内置 1MB Flash 和 288KByte SRAM。集成射频收发前端 RF Transceiver，CMOS PA 功率放大器，基带处理器/媒体访问控制。支持 SDIO、SPI、UART、GPIO、I²C、PWM、I²S、7816 等接口, 支持多种加解密协议，如 PRNG/SHA1/MD5/RC4/DES/3DES/AES/CRC/RSA 等。
+Supports multi-interface, multi-protocol IEEE802.11n wireless LAN (1T1R). Integrated Cortex-M3 core with an 80MHz clock speed. Built-in 1MB Flash and 288KB SRAM. Integrated RF transceiver front-end, CMOS PA, and baseband processor/media access control. Supports SDIO, SPI, UART, GPIO, I²C, PWM, I²S, 7816, and other interfaces. Supports multiple encryption and decryption protocols, including PRNG, SHA1, MD5, RC4, DES, 3DES, AES, CRC, and RSA.
 
-### 软件资源说明
+### Software Resource Description
 
-本节我们将介绍 W60X SDK 的软件资源，W60X SDK 将提供丰富的例程供大家使用。每个例程都有相应的注释，方便大家理解代码。每个例程都提供 MDK 和 IAR 工程，并且支持 GCC 开发环境，开发者拿到工程后经过简单的编译和下载即可看到实验现象。
+This section introduces the W60X SDK software resources. The W60X SDK provides a wealth of sample code for your use. Each sample code is commented to facilitate code understanding. Each sample code is provided as an MDK and IAR project, and supports the GCC development environment. Developers can simply compile and download the project to see experimental results.
 
-例程列表如下所示：
+The example code list is as follows:
 
-| 编号 | 类别   | 文件夹           | 说明                                           |
+| Number | Category | Folder | Description |
 | ---- | ------ | ---------------- | ---------------------------------------------- |
-| 01   | 基础   | led_blink        | LED 不间断闪烁                                 |
-| 02   | 基础   | key              | 板载按键                                       |
-| 03   | 基础   | rgb_led          | RGB LED 变色                                   |
-| 04   | 基础   | beep             | 使用按键控制蜂鸣器                             |
-| 05   | 基础   | ir               | 模拟红外线遥控器                               |
-| 06   | 驱动   | lcd              | LCD 显示文字和图片                             |
-| 07   | 驱动   | temp_humi        | 驱动温湿度传感器                               |
-| 08   | 驱动   | als_ps           | 驱动光强/接近传感器                            |
-| 09   | 组件   | fs_tf_card       | 基于 TF 卡的文件系统例程                       |
-| 10   | 组件   | fal              | 使用 Flash 抽象层组件（FAL）管理 Flash 及 分区 |
-| 11   | 组件   | kv               | 使用 EasyFlash 完成 KV 参数存储                |
-| 12   | 组件   | fs_flash         | 基于 SPI Flash 的文件系统例程                  |
-| 13   | 组件   | ulog             | 日志系统例程                                   |
-| 14   | 组件   | adbd             | ADB 远程调试工具例程                           |
-| 15   | 组件   | micropython      | 使用 MicroPython 控制硬件                      |
-| 16   | 物联网 | wifi_manager     | 使用 WiFi Manager 管理、操作 WiFi 网络         |
-| 17   | 物联网 | web_config_wifi  | 使用 web 快速接入 WiFi 网络                    |
-| 18   | 物联网 | airkiss          | 使用 AirKiss 快速接入 WiFi 网络                |
-| 19   | 物联网 | atk_module       | ATK模块例程                                    |
-| 20   | 物联网 | at_server        | AT 指令（服务器端）例程                        |
-| 21   | 物联网 | mqtt             | 使用 Paho-MQTT 软件包实现 MQTT 协议通信        |
-| 22   | 物联网 | http_client      | 使用 Web Client 软件包实现 HTTP Client         |
-| 23   | 物联网 | web_server       | 使用 Web 服务器组件：WebNet                    |
-| 24   | 物联网 | websocket        | 使用 websocket 软件包通信                      |
-| 25   | 物联网 | cjson            | 解析 JSON 数据格式例程                         |
-| 26   | 物联网 | tls              | 使用 mbedtls 软件包完成 TLS 通信               |
-| 27   | 物联网 | hw_crypto        | 硬件加解密功能例程                             |
-| 28   | 物联网 | ota_ymodem       | 通过串口 Ymodem 协议完成 OTA 固件升级          |
-| 29   | 物联网 | ota_http         | 通过 HTTP 协议完成 OTA 固件升级                |
-| 30   | 物联网 | netutils         | 网络小工具集使用例程                           |
-| 31   | 物联网 | cloud_rtt        | 接入 RT-Thread 物联网设备管理云平台            |
-| 32   | 物联网 | cloud_onenet     | 接入中国移动 OneNET 云平台                     |
-| 33   | 物联网 | cloud_ali_iotkit | 接入阿里云物联网平台                           |
-| 34   | 物联网 | cloud_ms_azure   | 接入微软 Azure 物联网平台                      |
-| 35   | 物联网 | cloud_tencent    | 接入腾讯云物联网平台                           |
-| 36   | 综合   | demo             | 综合性示例演示                                 |
+| 01 | Basic | led_blink | LED blinks continuously |
+| 02 | Basic | key | Onboard button |
+| 03 | Basic | rgb_led | RGB LED color change |
+| 04 | Basic | beep | Use a button to control a buzzer |
+| 05 | Basic | ir | Simulate an infrared remote control |
+| 06 | Driver | lcd | LCD displays text and images |
+| 07 | Driver | temp_humi | Drive a temperature and humidity sensor |
+| 08 | Driver | als_ps | Drive a light intensity/proximity sensor |
+| 09 | Component | fs_tf_card | TF card-based file system example |
+| 10 | Component | fal | Use the Flash Abstraction Layer (FAL) component to manage Flash and Partitioning |
+| 11 | Component | kv | Using EasyFlash to Store KV Parameters |
+| 12 | Component | fs_flash | SPI Flash-Based File System Examples |
+| 13 | Component | ulog | Logging System Examples |
+| 14 | Component | adbd | ADB Remote Debugging Tool Examples |
+| 15 | Component | micropython | Using MicroPython to Control Hardware |
+| 16 | Internet of Things | wifi_manager | Using WiFi Manager to Manage and Operate WiFi Networks |
+| 17 | Internet of Things | web_config_wifi | Using the Web to Quickly Connect to a WiFi Network |
+| 18 | Internet of Things | airkiss | Using AirKiss to Quickly Connect to a WiFi Network |
+| 19 | Internet of Things | atk_module | ATK Module Examples |
+| 20 | Internet of Things | at_server | AT Command (Server-Side) Examples |
+| 21 | Internet of Things | mqtt | Implementing MQTT Protocol Communication Using the Paho-MQTT Package |
+| 22 | Internet of Things | http_client | Implementing an HTTP Client Using the Web Client Package |
+| 23 | Internet of Things | web_server | Using the WebNet Web Server Component |
+| 24 | Internet of Things | websocket | Communicating Using the websocket Package |
+| 25 | Internet of Things | cjson | Example of Parsing JSON Data Format |
+| 26 | Internet of Things | tls | Implementing TLS Communication Using the mbedtls Package |
+| 27 | Internet of Things | hw_crypto | Hardware Encryption and Decryption Function Examples |
+| 28 | Internet of Things | ota_ymodem | Implementing OTA Firmware Upgrades Using the Ymodem Protocol on the Serial Port |
+| 29 | Internet of Things | ota_http | Implementing OTA Firmware Upgrades Using the HTTP Protocol |
+| 30 | Internet of Things | netutils | Example of Using the Network Gadget Toolkit |
+| 31 | Internet of Things | cloud_rtt | Connect to the RT-Thread IoT Device Management Cloud Platform |
+| 32 | IoT | cloud_onenet | Connect to China Mobile's OneNET Cloud Platform |
+| 33 | IoT | cloud_ali_iotkit | Connect to the Alibaba Cloud IoT Platform |
+| 34 | IoT | cloud_ms_azure | Connect to the Microsoft Azure IoT Platform |
+| 35 | IoT | cloud_tencent | Connect to the Tencent Cloud IoT Platform |
+| 36 | General | demo | Comprehensive Example Demonstration |
 
-## WM_Librarie 介绍
+## Introduction to WM_Librarie
 
-WM_Librarie 是北京联盛德微电子有限责任公司提供的开发软件包，该软件包提供了底层硬件驱动、WiFi 协议栈、固件下载、一键配网等众多基础功能。下面将分别介绍这些功能的作用。
+WM_Librarie is a development software package provided by Beijing Lianshengde Microelectronics Co., Ltd. It provides many basic functions, including low-level hardware drivers, a WiFi protocol stack, firmware downloads, and one-click network provisioning. The following describes the functions of each of these functions.
 
-### WM_Librarie 功能介绍
+### WM_Librarie Function Introduction
 
-### 一键配网功能
+### One-Click Network Configuration
 
-一键配网功能可以通过 APP 将 WiFi 名字和密码发送到开发板上，使开发板接入 WiFi 网络。支持市面上大多数的手机和路由器配网，成功概率高，配网速度快。
+This one-click network configuration feature allows you to send the WiFi name and password to the development board via the app, allowing it to connect to a WiFi network. It supports most mobile phones and routers on the market, with a high success rate and fast configuration speed.
 
-### 芯片外设驱动库
+### Chip Peripheral Driver Library
 
-提供W60X芯片各外围模块的驱动支持，包括 UART、SPI、TIMER、PWM、WDG等。具有运行效率高，占用资源小的特点。
+Provides driver support for various peripheral modules of the W60X chip, including UART, SPI, TIMER, PWM, WDG, etc. It features high efficiency and low resource usage.
 
-### WiFi功能库
+### WiFi Function Library
 
-提供了完整的 WiFi 协议栈功能，包括对 STA、SOFTAP、AP/STA 的支持。较全的WiFi功能使普通用户更容易操作WiFi，也能使高级用户更加灵活的操作WiFi。
+Provides a complete WiFi protocol stack, including support for STA, SOFTAP, and AP/STA. This comprehensive WiFi functionality makes WiFi operation easier for average users and more flexible for advanced users.
 
-### 固件打包功能
+### Firmware Packaging
 
-提供了适用于多种环境下的固件打包功能。固件生成器使用跨平台语言编译，能够在多个平台上运行。并且能够生成多个不同类型的固件，以适用于不同的升级场景。
+Provides firmware packaging suitable for various environments. The firmware generator is compiled using a cross-platform language and can run on multiple platforms. It can also generate multiple different firmware types to suit different upgrade scenarios.
 
-## 文档说明
+## Document Description
 
-### SDK 文档介绍
+### SDK Documentation Introduction
 
-SDK 相关文档在 docs 文件夹下，文档列表如下所示：
+SDK-related documents are in the docs folder. The document list is as follows:
 
-| 文档名称                                            | 说明                                     |
+| Document Name | Description |
 | --------------------------------------------------- | ---------------------------------------- |
-| board 文件夹                                        | 开发板相关说明文档，如原理图、数据手册等 |
-| AN0001-RT-Thread-串口设备应用笔记.pdf               | 串口驱动笔记                             |
-| AN0002-RT-Thread-通用 GPIO 设备应用笔记.pdf         | 通用 GPIO 设备应用笔记                   |
-| AN0003-RT-Thread-I2C 设备应用笔记.pdf               | I2C 设备应用笔记                         |
-| AN0004-RT-Thread-SPI 设备应用笔记.pdf               | SPI 设备应用笔记                         |
-| AN0006-RT-Thread-使用 QEMU 进行仿真调试.pdf         | 使用 QEMU 调试 RT-Thread                 |
-| AN0009-RT-Thread_使用 SystemView 分析工具.pdf       | 使用 SystemView 调试                     |
-| AN0010-RT-Thread-网络协议栈驱动移植笔记.pdf         | lwip 驱动移植                            |
-| AN0011-RT-Thread-网络开发应用笔记.pdf               | 网络开发应用笔记                         |
-| AN0012-RT-Thread-文件系统应用笔记.pdf               | RT-Thread 文件系统应用笔记               |
-| AN0014-RT-Thread-AT 组件应用笔记-客户端篇.pdf       | RT-Thread AT 组件应用笔记 - 客户端篇     |
-| AN0017-RT-Thread-创建标准的工程.pdf                 | 创建 RT-Thread 标准工程                  |
-| AN0018-RT-Thread-网络工具集应用笔记.pdf             | RT-Thread 网络工具集 (NETUTILS)应用笔记  |
-| AN0020-RT-Thread-使用 Eclipse + QEMU 调试.pdf       | 使用Eclipse + QEMU 调试 RT-Thread        |
-| AN0021-RT-Thread-使用 VS Code + QEMU 调试.pdf       | 使用VS Code + QEMU 调试 RT-Thread        |
-| AN0022-RT-Thread-ulog 日志组件应用笔记 - 基础篇.pdf | RT-Thread ulog 日志组件应用笔记- 基础篇  |
-| AN0023-RT-Thread-使用 QEMU 运行动态模块.pdf         | 使用QEMU 运行 RT-Thread动态模块          |
-| AN0024-RT-Thread-ulog 日志组件应用笔记 - 进阶篇.pdf | RT-Thread ulog 日志组件应用笔记- 进阶篇  |
-| AN0025-RT-Thread-电源管理组件应用笔记.pdf           | 电源管理应用笔记                         |
-| RT-Thread 编程指南.pdf                              | RT-Thread 编程指南                       |
-| UM1001-RT-Thread-WebClient 用户手册.pdf             | WEBCLIENT 用户手册                       |
-| UM1002-RT-Thread-ali-iotkit 用户手册.pdf            | RT-Thread ALI-IOTKIT 用户手册            |
-| UM1003-RT-Thread-OneNET 用户手册.pdf                | RT-Thread ONENET 用户手册                |
-| UM1004-RT-Thread-OTA 用户手册.pdf                   | RT-Thread OTA 用户手册                   |
-| UM1005-RT-Thread-Paho-MQTT 用户手册.pdf             | PAHO-MQTT 用户手册                       |
-| UM1006-RT-Thread-MbedTLS 用户手册.pdf               | RT-Thread MBEDTLS 用户手册               |
-| UM1007-RT-Thread-Azure-IoT-SDK 用户手册.pdf         | AZURE-IOT-SDK 用户手册                   |
-| UM1008-RT-Thread-设备维护云平台用户手册.pdf         | RT-Thread 云平台用户手册                 |
-| UM1009-RT-Thread-电源管理组件用户手册.pdf           | POWER MANAGEMENT 用户手册                |
-| UM1010-RT-Thread-Web 服务器(WebNet)用户手册.pdf     | RT-Thread WEBNET 用户手册                |
-| UM3101-RT-Thread-W60X-SDK 开发手册.pdf              | RT-Thread W60X SDK 开发手册              |
-| UM3102-RT-Thread-W60X-SDK 介绍.pdf                  | RT-Thread W60X SDK 说明                  |
-| UM3103-RT-Thread-W60X-SDK 快速上手.pdf              | RT-Thread W60X SDK 快速入门              |
-| UM3104-RT-Thread-W60X-SDK 发布说明.pdf              | RT-Thread W60X SDK 开发手册              |
+| board folder | Development board-related documentation, such as schematics, datasheets, etc. |
+| AN0001-RT-Thread-Serial Port Device Application Note.pdf | Serial Port Driver Note |
+| AN0002-RT-Thread-General GPIO Device Application Note.pdf | General GPIO Device Application Note |
+| AN0003-RT-Thread-I2C Device Application Note.pdf | I2C Device Application Note |
+| AN0004-RT-Thread-SPI Device Application Note.pdf | SPI Device Application Note |
+| AN0006-RT-Thread-Using QEMU for Emulation Debugging.pdf | Using QEMU to Debug RT-Thread |
+| AN0009-RT-Thread_Using the SystemView Analysis Tool.pdf | Using SystemView for Debugging |
+| AN0010-RT-Thread - Network Protocol Stack Driver Porting Notes.pdf | lwip Driver Porting |
+| AN0011-RT-Thread - Network Development Application Notes.pdf | Network Development Application Notes |
+| AN0012-RT-Thread - File System Application Notes.pdf | RT-Thread File System Application Notes |
+| AN0014-RT-Thread - AT Component Application Notes - Client Edition.pdf | RT-Thread AT Component Application Notes - Client Edition |
+| AN0017-RT-Thread - Creating a Standard Project.pdf | Creating an RT-Thread Standard Project |
+| AN0018-RT-Thread - Network Toolset Application Notes.pdf | RT-Thread Network Toolset (NETUTILS) Application Notes |
+| AN0020-RT-Thread - Debugging with Eclipse and QEMU.pdf | Debugging RT-Thread with Eclipse and QEMU |
+| AN0021-RT-Thread - Using VS Code and QEMU Debugging.pdf | Debugging RT-Thread with VS Code and QEMU |
+| AN0022-RT-Thread-ulog Logging Component Application Note - Basics.pdf | RT-Thread-ulog Logging Component Application Note - Basics |
+| AN0023-RT-Thread-Using QEMU to Run Dynamic Modules.pdf | Using QEMU to Run RT-Thread Dynamic Modules |
+| AN0024-RT-Thread-ulog Logging Component Application Note - Advanced.pdf | RT-Thread-ulog Logging Component Application Note - Advanced |
+| AN0025-RT-Thread-Power Management Component Application Note.pdf | Power Management Application Note |
+| RT-Thread Programming Guide.pdf | RT-Thread Programming Guide |
+| UM1001-RT-Thread-WebClient User Manual.pdf | WEBCLIENT User Manual |
+| UM1002-RT-Thread-ali-iotkit User Manual.pdf | RT-Thread ALI-IOTKIT User Manual |
+| UM1003-RT-Thread-OneNET User Manual.pdf | RT-Thread ONENET User Manual |
+| UM1004-RT-Thread-OTA User Manual.pdf | RT-Thread OTA User Manual |
+| UM1005-RT-Thread-Paho-MQTT User Manual.pdf | PAHO-MQTT User Manual |
+| UM1006-RT-Thread-MbedTLS User Manual.pdf | RT-Thread MBEDTLS User Manual |
+| UM1007-RT-Thread-Azure-IoT-SDK User Manual.pdf | AZURE-IOT-SDK User Manual |
+| UM1008-RT-Thread-Device Maintenance Cloud Platform User Manual.pdf | RT-Thread Cloud Platform User Manual |
+| UM1009-RT-Thread-Power Management Component User Manual.pdf | POWER MANAGEMENT User Manual |
+| UM1010-RT-Thread-Web Server (WebNet) User Manual.pdf | RT-Thread WEBNET User Manual |
+| UM3101-RT-Thread-W60X-SDK Development Manual.pdf | RT-Thread W60X SDK Development Manual |
+| UM3102-RT-Thread-W60X-SDK Introduction.pdf | RT-Thread W60X SDK Description |
+| UM3103-RT-Thread-W60X-SDK Quick Start.pdf | RT-Thread W60X SDK Quick Start |
+| UM3104-RT-Thread-W60X-SDK Release Notes.pdf | RT-Thread W60X SDK Development Manual |
 
-### WM_Librarie 文档介绍
+### WM_Librarie Documentation
 
-WM_Librarie 库中也有很多文档供大家参考学习，下面仅介绍与当前 SDK 相关的一些文档。文档路径为：RT-Thread_W60X_SDK/libraries/WM_Libraries/Doc。
+The WM_Librarie library also contains extensive documentation for your reference. The following only introduces some documentation related to the current SDK. The document path is: RT-Thread_W60X_SDK/libraries/WM_Libraries/Doc.
 
-| 文档名称                                               | 说明                         |
+| Document Name | Description |
 | ------------------------------------------------------ | ---------------------------- |
-| OneShot Lib&Demo 文件夹                                | 一键配网源码及APP            |
-| W60X_QFLASH_Driver_for_SWD 文件夹                      | Keil使用JTAG调试的QFLASH驱动 |
-| WM_W600_OneShotConfig2.0(Android) SDK用户手册_V1.0.pdf | 一键配网Android SDK用户手册  |
-| WM_W600_OneShotConfig2.0(IOS) SDK用户手册_V1.0.pdf     | 一键配网IOS SDK用户手册      |
-| WM_W600_ROM功能简述_V1.1.pdf                           | ROM功能使用手册              |
-| WM_W600_SECBOOT功能简述_V1.0.pdf                       | SECBOOT功能说明手册          |
-| WM_W600_SWD调试配置指南_V1.2.pdf                       | SWD调试配置手册              |
-| WM_W600_参数区使用说明_V1.1.pdf                        | 参数区使用说明手册           |
-| WM_W600_固件升级指导_V1.1.pdf                          | 固件升级指导手册             |
-| WM_W600_固件生成说明_V1.1.pdf                          | 固件生成说明手册             |
-| WM_W601_寄存器手册_v1.2.pdf                            | 寄存器手册                   |
+| OneShot Lib&Demo Folder | One-Click Network Configuration Source Code and App |
+| W60X_QFLASH_Driver_for_SWD Folder | Keil QFLASH Driver for JTAG Debugging |
+| WM_W600_OneShotConfig2.0(Android) SDK User Manual_V1.0.pdf | One-Click Network Configuration Android SDK User Manual |
+| WM_W600_OneShotConfig2.0(iOS) SDK User Manual_V1.0.pdf | One-Click Network Configuration iOS SDK User Manual |
+| WM_W600_ROM Function Description_V1.1.pdf | ROM Function User Manual |
+| WM_W600_SECBOOT Function Description_V1.0.pdf | SECBOOT Function Description Manual |
+| WM_W600_SWD Debug Configuration Guide_V1.2.pdf | SWD Debug Configuration Manual |
+| WM_W600 Parameter Area Usage Instructions_V1.1.pdf | Parameter Area Usage Manual |
+| WM_W600 Firmware Upgrade Guide_V1.1.pdf | Firmware Upgrade Guide Manual |
+| WM_W600 Firmware Generation Instructions_V1.1.pdf | Firmware Generation Instructions Manual |
+| WM_W601 Register Manual_v1.2.pdf | Register Manual |
 
-## 预备知识
+## Prerequisites
 
-使用 W60X SDK 需要的预备知识如下所示：
+The prerequisites for using the W60X SDK are as follows:
 
-- RT-Thread 基本知识
-- RT-Thread 开发环境
+- RT-Thread Basics
+- RT-Thread Development Environment
 
-RT-Thread 基本知识可以从 RT-Thread 文档中心学习相应的知识 [文档中心](https://www.rt-thread.org/document/site/)
+For more information on RT-Thread basics, please visit the RT-Thread Documentation Center [Documentation Center](https://www.rt-thread.org/document/site/)
